@@ -94,7 +94,7 @@ Typically, caches that use CDN-CONTROL will remove the header field from a respo
 For example, the following header fields would instruct a gateway cache to consider the response fresh for 600 seconds, other shared caches for 120 seconds and any remaining caches for 60 seconds:
 
 ~~~ example
-Cache-Control: max-age=60, smax-age=120
+Cache-Control: max-age=60, s-maxage=120
 CDN-Control: 600
 ~~~
 
