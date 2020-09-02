@@ -7,7 +7,7 @@ category: info
 
 ipr: trust200902
 area: General
-workgroup:
+workgroup: HTTP
 keyword: Internet-Draft
 
 stand_alone: yes
@@ -24,6 +24,10 @@ author:
     country: Australia
     email: mnot@mnot.net
     uri: https://www.mnot.net/
+ -
+    ins: Y. Wu
+    name: Yuchen Wu
+    organization: Cloudflare
 
 normative:
   RFC2119:
@@ -43,7 +47,7 @@ The issues list for this draft can be found at <https://github.com/cdn-specs/con
 
 The most recent (often, unpublished) draft is at <https://cdn-specs.github.io/control-header/>.
 
-Recent changes are listed at <https://github.com/cdn-specs/I-D/commits/main>.
+Recent changes are listed at <https://github.com/cdn-specs/control-header/commits/main>.
 
 See also the draft's current status in the IETF datatracker, at
 <https://datatracker.ietf.org/doc/draft-cdn-control-header/>.
