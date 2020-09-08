@@ -15,6 +15,10 @@ pi: [toc, tocindent, sortrefs, symrefs, strict, compact, comments, inline]
 
 author:
  -
+    ins: S. Ludin
+    name: Stephen Ludin
+    organization: Akamai
+ -
     ins: M. Nottingham
     name: Mark Nottingham
     organization: Fastly
