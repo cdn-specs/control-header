@@ -91,7 +91,7 @@ Caches that use CDN-Control MUST implement the semantics of the following direct
 * no-cache
 * private
 
-Gateway caches that used CDN-Control MAY pass the this header through so that the downstream gateway caches can use it as well. However, this behavior exposes the cache settings to all downstream proxies and clients. Due to the concern of such exposure, the header MAY be removed if the downstream is known to not use its value.
+Gateway caches that used CDN-Control MAY forward this header so that downstream gateway caches can use it as well. However, doing so exposes its value to all downstream clients, which might be undesirable. As a result, gateways that process this header field MAY remove it (for example, when configured to do so because it is known not to be used downstream).
 
 A proxy that does not implement caching MUST pass the CDN-Control header through.
 
