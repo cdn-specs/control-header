@@ -81,7 +81,7 @@ It is a Dictionary Structured Header {{!I-D.ietf-httpbis-header-structure}}, who
 
 For gateway caches, when a valid CDN-Control is present in a response, it MUST take precedence over Cache-Control and Expires headers. In other words, CDN-Control disables all cache directives in other header fields, and is a wholly separate way to control the cache. Note that this is on a response-by-response basis; if CDN-Control is not present, caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
 
-The semantics and precedence of cache directives in CDN-Control is the same as those in Cache-Control. In particular, no-store and no-cache make max-age inoperative.
+The semantics and precedence of cache directives in CDN-Control are the same as those in Cache-Control. In particular, no-store and no-cache make max-age inoperative.
 
 Caches that use CDN-Control MUST implement the semantics of the following directives:
 
