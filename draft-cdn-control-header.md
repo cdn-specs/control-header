@@ -162,7 +162,7 @@ Rather than attempting to align all of these different but well established beha
 
 An alternative design would be to have gateway caches combine the directives found in Cache-Control and CDN-Control, considering their union as the directives that must be followed.
 
-While this would be slightly less verbose in some cases, it would make interoperability considerable more complex to achieve. Consider the case when there are syntax errors in the argument of a directive; e.g., 'max-age=n60'. Should that directive be ignored, or does it invalidate the entire header field value? If the directive is ignored in CDN-Control, should the cache fall back to a value in Cache-Control? And so on.
+While this would be slightly less verbose in some cases, it would make interoperability considerably more complex to achieve. Consider the case when there are syntax errors in the argument of a directive; e.g., 'max-age=n60'. Should that directive be ignored, or does it invalidate the entire header field value? If the directive is ignored in CDN-Control, should the cache fall back to a value in Cache-Control? And so on.
 
 Also, this approach would make it difficult to direct the gateway cache to store something while directing other caches to avoid storing it (because no-store overrides max-age).
 
