@@ -77,7 +77,7 @@ shown here.
 
 The CDN-Control response header field allows origin servers to control the behaviour of gateway caches interposed between them and clients, separately from other caches that might handle the response.
 
-It is a Dictionary Structured Header {{!I-D.ietf-httpbis-header-structure}}, whose members are cache-directives defined in {{!RFC7234}}. In practice, they can be any directive registered in the HTTP Cache Directive Registry <https://www.iana.org/assignments/http-cache-directives/http-cache-directives.xhtml>.
+It is a Dictionary Structured Header {{!I-D.ietf-httpbis-header-structure}}, whose members can be any directive registered in the HTTP Cache Directive Registry <https://www.iana.org/assignments/http-cache-directives/http-cache-directives.xhtml>.
 
 For gateway caches, when a valid CDN-Control is present in a response, it MUST take precedence over Cache-Control and Expires headers. In other words, CDN-Control disables all cache directives in other header fields, and is a wholly separate way to control the cache. Note that this is on a response-by-response basis; if CDN-Control is not present, caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
 
