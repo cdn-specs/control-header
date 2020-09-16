@@ -1,6 +1,6 @@
 ---
-title: The CDN-Control HTTP Response Header Field
-abbrev: CDN-Control
+title: The CDN-Cache-Control HTTP Response Header Field
+abbrev: CDN-Cache-Control
 docname: draft-cdn-control-header-latest
 date: {NOW}
 category: info
@@ -73,17 +73,17 @@ shown here.
 
 
 
-# The CDN-Control Response Header Field
+# The CDN-Cache-Control Response Header Field
 
-The CDN-Control response header field allows origin servers to control the behaviour of gateway caches interposed between them and clients, separately from other caches that might handle the response.
+The CDN-Cache-Control response header field allows origin servers to control the behaviour of gateway caches interposed between them and clients, separately from other caches that might handle the response.
 
 It is a Dictionary Structured Header {{!I-D.ietf-httpbis-header-structure}}, whose members can be any directive registered in the HTTP Cache Directive Registry <https://www.iana.org/assignments/http-cache-directives/http-cache-directives.xhtml>.
 
-For gateway caches, when a valid CDN-Control is present in a response, it MUST take precedence over Cache-Control and Expires headers. In other words, CDN-Control disables all cache directives in other header fields, and is a wholly separate way to control the cache. Note that this is on a response-by-response basis; if CDN-Control is not present, caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
+For gateway caches, when a valid CDN-Cache-Control is present in a response, it MUST take precedence over Cache-Control and Expires headers. In other words, CDN-Cache-Control disables all cache directives in other header fields, and is a wholly separate way to control the cache. Note that this is on a response-by-response basis; if CDN-Cache-Control is not present, caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
 
-The semantics and precedence of cache directives in CDN-Control are the same as those in Cache-Control. In particular, no-store and no-cache make max-age inoperative.
+The semantics and precedence of cache directives in CDN-Cache-Control are the same as those in Cache-Control. In particular, no-store and no-cache make max-age inoperative.
 
-Caches that use CDN-Control MUST implement the semantics of the following directives:
+Caches that use CDN-Cache-Control MUST implement the semantics of the following directives:
 
 * max-age
 * must-revalidate
@@ -91,13 +91,13 @@ Caches that use CDN-Control MUST implement the semantics of the following direct
 * no-cache
 * private
 
-Gateway caches that used CDN-Control MAY forward this header so that downstream gateway caches can use it as well. However, doing so exposes its value to all downstream clients, which might be undesirable. As a result, gateways that process this header field MAY remove it (for example, when configured to do so because it is known not to be used downstream).
+Gateway caches that used CDN-Cache-Control MAY forward this header so that downstream gateway caches can use it as well. However, doing so exposes its value to all downstream clients, which might be undesirable. As a result, gateways that process this header field MAY remove it (for example, when configured to do so because it is known not to be used downstream).
 
-A proxy that does not implement caching MUST pass the CDN-Control header through.
+A proxy that does not implement caching MUST pass the CDN-Cache-Control header through.
 
-A gatway cache that does not use CDN-Control MUST pass the CDN-Control header through.
+A gatway cache that does not use CDN-Cache-Control MUST pass the CDN-Cache-Control header through.
 
-Private caches SHOULD ignore the CDN-Control header field.
+Private caches SHOULD ignore the CDN-Cache-Control header field.
 
 ## Examples
 
@@ -105,17 +105,17 @@ For example, the following header fields would instruct a gateway cache to consi
 
 ~~~ example
 Cache-Control: max-age=60, s-maxage=120
-CDN-Control: 600
+CDN-Cache-Control: 600
 ~~~
 
 These header fields would instruct a gateway cache to consider the response fresh for 600 seconds, while all other caches would be prevented from storing it:
 
 ~~~ example
 Cache-Control: no-store
-CDN-Control: max-age=600
+CDN-Cache-Control: max-age=600
 ~~~
 
-Because CDN-Control is not present, this header field would prevent all caches from storing the response:
+Because CDN-Cache-Control is not present, this header field would prevent all caches from storing the response:
 
 ~~~ example
 Cache-Control: no-store
@@ -125,7 +125,7 @@ Whereas these would prevent all caches except for gateway caches from storing th
 
 ~~~ example
 Cache-Control: no-store
-CDN-Control: none
+CDN-Cache-Control: none
 ~~~
 
 (note that 'none' is not a registered cache directive; it is here to avoid sending a header field with an empty value, because such a header might not be preserved in all cases)
@@ -133,9 +133,9 @@ CDN-Control: none
 
 ## Parsing
 
-CDN-Control is specified as a Structured Field {{!I-D.ietf-httpbis-header-structure}}, and implementations are encouraged to use a parser for that format in the interests of robustness, interoperability and security.
+CDN-Cache-Control is specified as a Structured Field {{!I-D.ietf-httpbis-header-structure}}, and implementations are encouraged to use a parser for that format in the interests of robustness, interoperability and security.
 
-When an implementation parses CDN-Control as a Structured Field, each directive will be assigned a value. For example, max-age has an integer value; no-store’s value is boolean true, and no-cache’s value can either be boolean true or a list of field names. Implementations SHOULD NOT accept other values (e.g. coerce a max-age with a decimal value into an integer). Likewise, implementations SHOULD ignore parameters on directives, unless otherwise specified.
+When an implementation parses CDN-Cache-Control as a Structured Field, each directive will be assigned a value. For example, max-age has an integer value; no-store’s value is boolean true, and no-cache’s value can either be boolean true or a list of field names. Implementations SHOULD NOT accept other values (e.g. coerce a max-age with a decimal value into an integer). Likewise, implementations SHOULD ignore parameters on directives, unless otherwise specified.
 
 However, some implementers MAY initially reuse a Cache-Control parser for simplicity. If they do so, they SHOULD observe the following points, to aid in a smooth transition to a full Structured Field parser and prevent interoperability issues:
 
@@ -160,9 +160,9 @@ Rather than attempting to align all of these different but well established beha
 
 ## Why not mix with Cache-Control?
 
-An alternative design would be to have gateway caches combine the directives found in Cache-Control and CDN-Control, considering their union as the directives that must be followed.
+An alternative design would be to have gateway caches combine the directives found in Cache-Control and CDN-Cache-Control, considering their union as the directives that must be followed.
 
-While this would be slightly less verbose in some cases, it would make interoperability considerably more complex to achieve. Consider the case when there are syntax errors in the argument of a directive; e.g., 'max-age=n60'. Should that directive be ignored, or does it invalidate the entire header field value? If the directive is ignored in CDN-Control, should the cache fall back to a value in Cache-Control? And so on.
+While this would be slightly less verbose in some cases, it would make interoperability considerably more complex to achieve. Consider the case when there are syntax errors in the argument of a directive; e.g., 'max-age=n60'. Should that directive be ignored, or does it invalidate the entire header field value? If the directive is ignored in CDN-Cache-Control, should the cache fall back to a value in Cache-Control? And so on.
 
 Also, this approach would make it difficult to direct the gateway cache to store something while directing other caches to avoid storing it (because no-store overrides max-age).
 
