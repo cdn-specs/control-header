@@ -1,4 +1,4 @@
-# The CDN-Control HTTP Response Header Field
+# The CDN-Cache-Control HTTP Response Header Field
 
 This is the working area for the individual Internet-Draft, "The CDN-Control HTTP Response Header Field".
 
