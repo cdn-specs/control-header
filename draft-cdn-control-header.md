@@ -60,7 +60,7 @@ See also the draft's current status in the IETF datatracker, at
 
 # Introduction
 
-Many HTTP origin servers Content Delivery Networks (i.e., distributed HTTP gateways, usually implementing caches) to speed up distributing their content.
+Many HTTP origin servers use Content Delivery Networks (i.e., distributed HTTP gateways, usually implementing caches) to speed up distributing their content.
 
 While HTTP defines Cache-Control as a means of controlling cache behaviour for both private caches and shared caches, it is often desirable to give CDN caches separate instructions. To meet this need, this specification defines a separate header field that conveys HTTP cache directives to CDN caches only.
 
