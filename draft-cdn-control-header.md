@@ -79,7 +79,7 @@ The CDN-Cache-Control response header field allows origin servers to control the
 
 It is a Dictionary Structured Header {{!I-D.ietf-httpbis-header-structure}}, whose members can be any directive registered in the HTTP Cache Directive Registry <https://www.iana.org/assignments/http-cache-directives/http-cache-directives.xhtml>.
 
-When a valid CDN-Cache-Control is present in a response, CDN caches MUST ignore the Cache-Control and Expires response headers in that response. As such, CDN-Cache-Control is a wholly separate way to control the CDN cache. Note that this is on a response-by-response basis; if CDN-Cache-Control is not present, CDN caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
+When a valid CDN-Cache-Control header field is present in a response, CDN caches MUST ignore the Cache-Control and Expires response headers in that response. As such, CDN-Cache-Control is a wholly separate way to control the CDN cache. Note that this is on a response-by-response basis; if CDN-Cache-Control is not present, CDN caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
 
 The semantics and precedence of cache directives in CDN-Cache-Control are the same as those in Cache-Control. In particular, no-store and no-cache make max-age inoperative.
 
