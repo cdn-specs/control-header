@@ -169,3 +169,8 @@ Also, this approach would make it difficult to direct the gateway cache to store
 ## Is this just for CDNs?
 
 No; any gateway cache can use it. The name is chosen for convenience and brevity.
+
+
+## What if I use more than one CDN?
+
+Individual CDNs can choose to define their own control mechanisms that take precedence over this header field. It is RECOMMENDED that they use a header whose value has the same syntax and semantics, and use a field name in the pattern "CDN_NAME-CDN-Cache-Control"; for example, the Foo CDN might register "Foo-CDN-Cache-Control".
