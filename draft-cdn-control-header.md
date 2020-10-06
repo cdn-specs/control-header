@@ -169,3 +169,7 @@ Also, this approach would make it difficult to direct the CDN cache to store som
 By default, yes. There is often a need to differentiate between CDNs and gateway caches deployed local to the origin server; CDN-Cache-Control allows that.
 
 In some cases, a site might create a CDN by deploying gateway caches and routing traffic to them; this is, after all, how a CDN works at a high level. To support this scenario, gateway caches MAY be configured to process the CDN-Cache-Control header field, but they MUST NOT default to supporting it.
+
+## What if I use more than one CDN?
+
+Individual CDNs can choose to define their own control mechanisms that take precedence over this header field. It is RECOMMENDED that they use a header whose value has the same syntax and semantics, and use a field name in the pattern "CDN_NAME-CDN-Cache-Control"; for example, the Foo CDN might register "Foo-CDN-Cache-Control". When present on a response received by Foo CDN, that header field would override both CDN-Cache-Control and Cache-Control. As with CDN-Cache-Control, Foo CDN could decide whether or not to strip that header from responses before sending them.
