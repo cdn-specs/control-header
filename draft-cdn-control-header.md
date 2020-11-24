@@ -33,6 +33,7 @@ author:
     ins: Y. Wu
     name: Yuchen Wu
     organization: Cloudflare
+    email: me@yuchenwu.net
 
 normative:
   RFC2119:
