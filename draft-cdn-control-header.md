@@ -135,7 +135,7 @@ CDN-Cache-Control is specified as a Structured Field {{!I-D.ietf-httpbis-header-
 
 When an implementation parses CDN-Cache-Control as a Structured Field, each directive will be assigned a value. For example, max-age has an integer value; no-store’s value is boolean true, and no-cache’s value can either be boolean true or a list of field names. Implementations SHOULD NOT accept other values (e.g. coerce a max-age with a decimal value into an integer). Likewise, implementations SHOULD ignore parameters on directives, unless otherwise specified.
 
-However, some implementers MAY initially reuse a Cache-Control parser for simplicity. If they do so, they SHOULD observe the following points, to aid in a smooth transition to a full Structured Field parser and prevent interoperability issues:
+However, implementers MAY initially reuse a Cache-Control parser for simplicity. If they do so, they SHOULD observe the following points, to aid in a smooth transition to a full Structured Field parser and prevent interoperability issues:
 
 * If a directive is repeated in the field value (e.g., "max-age=30, max-age=60"), the last value 'wins' (60, in this case)
 * Members of the directives can have parameters (e.g., "max-age=30;a=b;c=d"), which should be ignored unless specified.
