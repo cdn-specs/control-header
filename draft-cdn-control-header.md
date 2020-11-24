@@ -101,27 +101,27 @@ Private caches SHOULD ignore the CDN-Cache-Control header field.
 
 For example, the following header fields would instruct a CDN cache to consider the response fresh for 600 seconds, other shared caches for 120 seconds and any remaining caches for 60 seconds:
 
-~~~ example
+~~~ http-message
 Cache-Control: max-age=60, s-maxage=120
-CDN-Cache-Control: 600
+CDN-Cache-Control: max-age=600
 ~~~
 
 These header fields would instruct a CDN cache to consider the response fresh for 600 seconds, while all other caches would be prevented from storing it:
 
-~~~ example
+~~~ http-message
 Cache-Control: no-store
 CDN-Cache-Control: max-age=600
 ~~~
 
 Because CDN-Cache-Control is not present, this header field would prevent all caches from storing the response:
 
-~~~ example
+~~~ http-message
 Cache-Control: no-store
 ~~~
 
 Whereas these would prevent all caches except for CDN caches from storing the response:
 
-~~~ example
+~~~ http-message
 Cache-Control: no-store
 CDN-Cache-Control: none
 ~~~
