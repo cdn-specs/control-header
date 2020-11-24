@@ -18,6 +18,7 @@ author:
     ins: S. Ludin
     name: Stephen Ludin
     organization: Akamai
+    email: sludin@ludin.org
  -
     ins: M. Nottingham
     name: Mark Nottingham
