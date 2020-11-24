@@ -91,7 +91,7 @@ Caches that use CDN-Cache-Control MUST implement the semantics of the following 
 * no-cache
 * private
 
-CDN caches that used CDN-Cache-Control MAY forward this header so that downstream CDN caches can use it as well. However, doing so exposes its value to all downstream clients, which might be undesirable. As a result, CDN caches that process this header field MAY remove it (for example, when configured to do so because it is known not to be used downstream).
+CDN caches that use CDN-Cache-Control MAY forward this header so that downstream CDN caches can use it as well. However, doing so exposes its value to all downstream clients, which might be undesirable. As a result, CDN caches that process this header field MAY remove it (for example, when configured to do so because it is known not to be used downstream).
 
 A CDN cache that does not use CDN-Cache-Control MUST pass the CDN-Cache-Control header through.
 
