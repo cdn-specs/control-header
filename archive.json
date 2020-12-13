@@ -1,0 +1,380 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2020-12-13T00:01:07.585856+00:00",
+  "repo": "cdn-specs/control-header",
+  "labels": [
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 3,
+      "id": "MDU6SXNzdWU3NTAyNDIyMzE=",
+      "title": "[removing ambiguity] handling private cache",
+      "url": "https://github.com/cdn-specs/control-header/issues/3",
+      "state": "OPEN",
+      "author": "iwanaga",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": ">When a valid CDN-Cache-Control header field is present in a response, CDN caches MUST ignore the Cache-Control and Expires response headers in that response.\r\n\r\n>Private caches SHOULD ignore the CDN-Cache-Control header field.\r\n\r\nIf following header is responded from origin server, which is expected behavior for CDN?\r\n\r\n```\r\nCache-Control: private\r\nCDN-Cache-Control: max-age=600\r\n```\r\n\r\n1. Cache-Control is ignored and CDN caches for 600 seconds\r\n2. CDN-Cache-Control is ignored and CDN does not cache",
+      "createdAt": "2020-11-25T01:27:41Z",
+      "updatedAt": "2020-12-09T11:42:29Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "afshin2020",
+          "authorAssociation": "NONE",
+          "body": "Ok",
+          "createdAt": "2020-12-04T09:42:57Z",
+          "updatedAt": "2020-12-04T09:42:57Z"
+        },
+        {
+          "author": "afshin2020",
+          "authorAssociation": "NONE",
+          "body": "Ok",
+          "createdAt": "2020-12-09T11:42:29Z",
+          "updatedAt": "2020-12-09T11:42:29Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "MDU6SXNzdWU3NTA2NDM4MTc=",
+      "title": "No",
+      "url": "https://github.com/cdn-specs/control-header/issues/4",
+      "state": "CLOSED",
+      "author": "afshin2020",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-11-25T09:24:03Z",
+      "updatedAt": "2020-12-04T09:48:56Z",
+      "closedAt": "2020-12-04T09:48:56Z",
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "MDU6SXNzdWU3NjAyNTY2MTM=",
+      "title": "No",
+      "url": "https://github.com/cdn-specs/control-header/issues/5",
+      "state": "OPEN",
+      "author": "afshin2020",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Nist",
+      "createdAt": "2020-12-09T11:41:58Z",
+      "updatedAt": "2020-12-09T11:41:58Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "MDU6SXNzdWU3NjQxNDYwMzc=",
+      "title": "Update",
+      "url": "https://github.com/cdn-specs/control-header/issues/6",
+      "state": "CLOSED",
+      "author": "afshin2020",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Ok",
+      "createdAt": "2020-12-12T18:16:59Z",
+      "updatedAt": "2020-12-12T18:17:35Z",
+      "closedAt": "2020-12-12T18:17:35Z",
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "MDExOlB1bGxSZXF1ZXN0NDgyNjE4OTc0",
+      "title": "Yuchen's feedback 2020/09/08",
+      "url": "https://github.com/cdn-specs/control-header/pull/1",
+      "state": "MERGED",
+      "author": "mnot",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The No.1 thing to figure out is the the consistency between the terms CDN vs\r\ngateway cache. We also need to define them so that the readers of this\r\nRFC know if the services they are running are relevant.\r\n\r\nThe biggest change in my revision is that whether to preseve\r\nCDN-Control header after a gateway proxy uses it.\r\n\r\nOthers changes are more or less fixing typos and wording.",
+      "createdAt": "2020-09-09T07:52:23Z",
+      "updatedAt": "2020-09-16T00:03:43Z",
+      "baseRepository": "cdn-specs/control-header",
+      "baseRefName": "main",
+      "baseRefOid": "40f2a574fbed6b915f30c8957425040b31ba048a",
+      "headRepository": "cdn-specs/control-header",
+      "headRefName": "yuchen/feedback-2020-09-08",
+      "headRefOid": "fb1b326a0bdd69c54a8351c1a9078b5b757a2130",
+      "closedAt": "2020-09-16T00:03:43Z",
+      "mergedAt": "2020-09-16T00:03:43Z",
+      "mergedBy": "mnot",
+      "mergeCommit": {
+        "oid": "afd356af7062bc8c2ebc8e1211199fd3f5bc1994"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDg0NzUwNTIx",
+          "commit": {
+            "abbreviatedOid": "22ee6fe"
+          },
+          "author": "mnot",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-09T07:55:03Z",
+          "updatedAt": "2020-09-09T08:03:07Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nFor gateway caches, when a valid CDN-Control is present in a response, it MUST take precedence over Cache-Control and Expires headers. In other words, CDN-Control disables all cache directives in other header fields, and is a wholly separate way to control the cache. Note that this is on a response-by-response basis; if CDN-Control is not present, caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.\r\n```",
+              "createdAt": "2020-09-09T07:55:04Z",
+              "updatedAt": "2020-09-15T23:55:21Z"
+            },
+            {
+              "originalPosition": 29,
+              "body": "'In practice' is too casual -- the valid directives need to be tied to an authority, and the registry is the most obvious one. Otherwise it will be constrained to just those in the caching document.",
+              "createdAt": "2020-09-09T07:56:09Z",
+              "updatedAt": "2020-09-15T23:55:21Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "```suggestion\r\nThe semantics and precedence of cache directives in CDN-Control are the same as those in Cache-Control. In particular, no-store and no-cache make max-age inoperative.\r\n```",
+              "createdAt": "2020-09-09T07:58:33Z",
+              "updatedAt": "2020-09-15T23:55:21Z"
+            },
+            {
+              "originalPosition": 43,
+              "body": "```suggestion\r\nGateway caches that used CDN-Control MAY forward this header so that downstream gateway caches can use it as well. However, doing so exposes its value to all downstream clients, which might be undesirable. As a result, gateways that process this header field MAY remove it (for example, when configured to do so because it is known not to be used downstream).\r\n```",
+              "createdAt": "2020-09-09T08:02:51Z",
+              "updatedAt": "2020-09-15T23:55:21Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDg1NTAzMjg2",
+          "commit": {
+            "abbreviatedOid": "22ee6fe"
+          },
+          "author": "eaufavor",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-10T01:22:03Z",
+          "updatedAt": "2020-09-10T01:22:04Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "Right I think we can break this section down to 3 parts. 1. syntax, which I think Dictionary Structured Header should be enough. 2. semantic: the well defined ones are from the registry. 3. We need something like https://tools.ietf.org/html/rfc7234#section-5.2.3. Since Cache-Control itself is extendable, CDN-control should allow the same. The words in it current state sound like that is not allowed.",
+              "createdAt": "2020-09-10T01:22:03Z",
+              "updatedAt": "2020-09-15T23:55:21Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDg4NDM4MDY5",
+          "commit": {
+            "abbreviatedOid": "67fd42e"
+          },
+          "author": "mnot",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-15T08:18:09Z",
+          "updatedAt": "2020-09-15T08:18:10Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "Could you perhaps back this one change out so we can merge this PR, and then we can work on that?",
+              "createdAt": "2020-09-15T08:18:09Z",
+              "updatedAt": "2020-09-15T23:55:21Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDg5MTgzNTU1",
+          "commit": {
+            "abbreviatedOid": "fb1b326"
+          },
+          "author": "eaufavor",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-15T23:55:30Z",
+          "updatedAt": "2020-09-15T23:55:30Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "done",
+              "createdAt": "2020-09-15T23:55:30Z",
+              "updatedAt": "2020-09-15T23:55:30Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "MDExOlB1bGxSZXF1ZXN0NDg3Njc5NDI3",
+      "title": "Rough in how redefining this as just CDNs looks",
+      "url": "https://github.com/cdn-specs/control-header/pull/2",
+      "state": "MERGED",
+      "author": "mnot",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-09-16T02:18:41Z",
+      "updatedAt": "2020-10-06T03:32:13Z",
+      "baseRepository": "cdn-specs/control-header",
+      "baseRefName": "main",
+      "baseRefOid": "39cc747dd5f0e70d0b6b0d3ced1c60d65eb14952",
+      "headRepository": "cdn-specs/control-header",
+      "headRefName": "no-gateway",
+      "headRefOid": "cc224507ef56793ca65dc670385e0a92ea54fc53",
+      "closedAt": "2020-10-06T03:32:13Z",
+      "mergedAt": "2020-10-06T03:32:13Z",
+      "mergedBy": "mnot",
+      "mergeCommit": {
+        "oid": "2ac41a7fd3e1963b6cb4a9b6c4c295f72227a74f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDg5ODA5NjUy",
+          "commit": {
+            "abbreviatedOid": "97f9898"
+          },
+          "author": "sludin",
+          "authorAssociation": "NONE",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2020-09-16T16:42:09Z",
+          "updatedAt": "2020-09-16T16:43:57Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "I think you mean to say \"server use Content Delivery Networks...\"",
+              "createdAt": "2020-09-16T16:42:09Z",
+              "updatedAt": "2020-10-06T03:31:58Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "Should that say \"When a valid CDN-Cache-Control header is present\"?",
+              "createdAt": "2020-09-16T16:43:09Z",
+              "updatedAt": "2020-10-06T03:31:58Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDkwMTg0MTIw",
+          "commit": {
+            "abbreviatedOid": "97f9898"
+          },
+          "author": "eaufavor",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-17T01:33:54Z",
+          "updatedAt": "2020-09-17T01:33:55Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "This reminds me of an issue I want to bring up: do we want to support directives across multiple CDN-control-headers?",
+              "createdAt": "2020-09-17T01:33:55Z",
+              "updatedAt": "2020-10-06T03:31:58Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDkwMzEwOTAw",
+          "commit": {
+            "abbreviatedOid": "97f9898"
+          },
+          "author": "mnot",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-17T07:23:37Z",
+          "updatedAt": "2020-09-17T07:23:38Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nMany HTTP origin servers use Content Delivery Networks (i.e., distributed HTTP gateways, usually implementing caches) to speed up distributing their content.\r\n```",
+              "createdAt": "2020-09-17T07:23:37Z",
+              "updatedAt": "2020-10-06T03:31:58Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDkwMzExNTY3",
+          "commit": {
+            "abbreviatedOid": "762e596"
+          },
+          "author": "mnot",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-17T07:24:29Z",
+          "updatedAt": "2020-09-17T07:24:30Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "```suggestion\r\nWhen a valid CDN-Cache-Control header field is present in a response, CDN caches MUST ignore the Cache-Control and Expires response headers in that response. As such, CDN-Cache-Control is a wholly separate way to control the CDN cache. Note that this is on a response-by-response basis; if CDN-Cache-Control is not present, CDN caches MAY fall back to other control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.\r\n```",
+              "createdAt": "2020-09-17T07:24:30Z",
+              "updatedAt": "2020-10-06T03:31:58Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDkwMzEyMjI3",
+          "commit": {
+            "abbreviatedOid": "1e13b84"
+          },
+          "author": "mnot",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2020-09-17T07:25:24Z",
+          "updatedAt": "2020-09-17T07:25:24Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "@eaufavor it has to - an upstream intermediary might combine two headers (as with any header field, except Set-Cookie).",
+              "createdAt": "2020-09-17T07:25:24Z",
+              "updatedAt": "2020-10-06T03:31:58Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NDkzMDYxMDY1",
+          "commit": {
+            "abbreviatedOid": "1e13b84"
+          },
+          "author": "eaufavor",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2020-09-22T00:12:28Z",
+          "updatedAt": "2020-09-22T00:12:28Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
