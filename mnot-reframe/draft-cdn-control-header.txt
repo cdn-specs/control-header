@@ -309,7 +309,6 @@ Authors' Addresses
 
    Mark Nottingham
    Fastly
-   made in
    Prahran VIC
    Australia
 
