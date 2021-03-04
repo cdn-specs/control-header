@@ -133,7 +133,7 @@ A targeted field for a particular class of cache can be defined by requesting re
 By convention, targeted fields SHOULD have the suffix "-Cache-Control": e.g., "ExampleCDN-Cache-Control". However, this suffix MUST NOT be used on its own to identify targeted fields; it is only a convention.
 
 
-# The CDN-Cache-Control Targeted Fields {#cdn-cache-control}
+# The CDN-Cache-Control Targeted Field {#cdn-cache-control}
 
 The CDN-Cache-Control response header field is a targeted field {{targeted}} that allows origin servers to control the behaviour of CDN caches interposed between them and clients, separately from other caches that might handle the response.
 
