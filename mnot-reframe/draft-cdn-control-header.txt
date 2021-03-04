@@ -79,7 +79,7 @@ Table of Contents
    2.  Targeted Cache-Control Header Fields
      2.1.  Parsing Targeted Fields
      2.2.  Defining Targeted Fields
-   3.  The CDN-Cache-Control Targeted Fields
+   3.  The CDN-Cache-Control Targeted Field
      3.1.  Examples
    4.  IANA Considerations
    5.  Security Considerations
@@ -219,7 +219,7 @@ Table of Contents
    MUST NOT be used on its own to identify targeted fields; it is only a
    convention.
 
-3.  The CDN-Cache-Control Targeted Fields
+3.  The CDN-Cache-Control Targeted Field
 
    The CDN-Cache-Control response header field is a targeted field
    Section 2 that allows origin servers to control the behaviour of CDN
