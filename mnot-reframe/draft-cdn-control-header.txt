@@ -175,9 +175,9 @@ Table of Contents
 2.1.  Parsing Targeted Fields
 
    Targeted fields MAY be parsed as a Dictionary Structured Field
-   [I-D.ietf-httpbis-header-structure], and implementations are
-   encouraged to use a parser for that format in the interests of
-   robustness, interoperability and security.
+   [RFC8941], and implementations are encouraged to use a parser for
+   that format in the interests of robustness, interoperability and
+   security.
 
    When an implementation parses a targeted field as a Structured Field,
    each cache directive will be assigned a value.  For example, max-age
@@ -286,13 +286,6 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
               cache-14.txt>.
 
-   [I-D.ietf-httpbis-header-structure]
-              Nottingham, M. and P. Kamp, "Structured Field Values for
-              HTTP", Work in Progress, Internet-Draft, draft-ietf-
-              httpbis-header-structure-19, 3 June 2020,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
-              header-structure-19.txt>.
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -301,6 +294,10 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
+
+   [RFC8941]  Nottingham, M. and P-H. Kamp, "Structured Field Values for
+              HTTP", RFC 8941, DOI 10.17487/RFC8941, February 2021,
+              <https://datatracker.ietf.org/doc/html/rfc8941>.
 
 Authors' Addresses
 
