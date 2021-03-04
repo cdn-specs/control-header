@@ -23,7 +23,7 @@ author:
     ins: M. Nottingham
     name: Mark Nottingham
     organization: Fastly
-    street: made in
+    street:
     city: Prahran
     region: VIC
     country: Australia
