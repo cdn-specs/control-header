@@ -113,7 +113,7 @@ A cache that does not the targeted field MUST pass the targeted field through, a
 
 ## Parsing Targeted Fields
 
-Targeted fields MAY be parsed as a Dictionary Structured Field {{!I-D.ietf-httpbis-header-structure}}, and implementations are encouraged to use a parser for that format in the interests of robustness, interoperability and security.
+Targeted fields MAY be parsed as a Dictionary Structured Field {{!RFC8941}}, and implementations are encouraged to use a parser for that format in the interests of robustness, interoperability and security.
 
 When an implementation parses a targeted field as a Structured Field, each cache directive will be assigned a value. For example, max-age has an integer value; no-store’s value is boolean true, and no-cache’s value can either be boolean true or a list of field names. Implementations SHOULD NOT accept other values (e.g. coerce a max-age with a decimal value into an integer). Likewise, implementations SHOULD ignore parameters on directives, unless otherwise specified.
 
