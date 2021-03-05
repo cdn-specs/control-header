@@ -92,9 +92,21 @@ CDN-Cache-Control: max-age=60
 
 is a targeted field that applies to Content Delivery Networks (CDNs), as defined in {{cdn-cache-control}}.
 
-When a valid, non-empty targeted field is present in a response, and a cache considers that targeted field to apply to it, that cache MUST ignore the Cache-Control and Expires response headers in that response. Note that this is on a response-by-response basis; if no applicable targeted field is present, a cache falls back to other cache control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
+## Cache Behavior
 
-If more than one valid, non-empty targeted field in a given response applies to a cache, only the most specific targeted field (as determined by the cache) is used in the processing of that response.
+Caches that implement this specification keep an ordered list of the targeted field names that they identify as applying to them, with the order reflecting priority, from most applicable to least. This list might be user-configurable, depending upon the implementation.
+
+For example, a CDN cache might support both CDN-Cache-Control and a header specific to that CDN, ExampleCDN-Cache-Control. Its list would be:
+
+~~~
+  [ExampleCDN-Cache-Control, CDN-Cache-Control]
+~~~
+
+When a cache that implements this specification receives a response with one or more of of the header field names on this list, the cache MUST select the first (in list order) field with a valid, non-empty value and use that to determine the caching policy for the response, and MUST ignore the Cache-Control and Expires header fields in that response, unless no valid, non-empty value is available from the listed header fields.
+
+Note that this is on a response-by-response basis; if no applicable targeted field is present, valid and non-empty, a cache falls back to other cache control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
+
+Targeted fields that are not on a cache's list of applicable field names MUST NOT change that cache's behaviour, and MUST be passed through.
 
 Caches that use a targeted field MUST implement the semantics of the following cache directives:
 
@@ -107,8 +119,6 @@ Caches that use a targeted field MUST implement the semantics of the following c
 Furthermore, they SHOULD implement other cache directives (including extension cache directives) that they support in the Cache-Control response header field.
 
 The semantics and precedence of cache directives in a targeted field are the same as those in Cache-Control. In particular, no-store and no-cache make max-age inoperative.
-
-A cache that does not the targeted field MUST pass the targeted field through, and MUST NOT change their behavior based upon its contents.
 
 
 ## Parsing Targeted Fields
