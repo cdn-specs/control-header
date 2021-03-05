@@ -193,6 +193,8 @@ _TBD_
 
 The security considerations of HTTP caching {{!I-D.ietf-httpbis-cache}} apply.
 
+The ability to carry multiple caching policies on a response can result in confusion about how a response will be cached in different systems, if not used carefully. This might result in unintentional reuse of responses with sensitive information.
+
 
 --- back
 
