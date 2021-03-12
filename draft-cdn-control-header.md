@@ -94,19 +94,19 @@ is a targeted field that applies to Content Delivery Networks (CDNs), as defined
 
 ## Cache Behavior
 
-A Cache that implement this specification has an ordered list of the targeted field names that it uses for caching policy, with the order reflecting priority from most applicable to least. This list might be fixed, user-configurable, or generated per request, depending upon the implementation.
+A Cache that implement this specification has a _target list_ - an ordered list of the targeted field names that it uses for caching policy, with the order reflecting priority from most applicable to least. The target list might be fixed, user-configurable, or generated per request, depending upon the implementation.
 
-For example, a CDN cache might support both CDN-Cache-Control and a header specific to that CDN, ExampleCDN-Cache-Control, with the latter overriding the former. Its list would be:
+For example, a CDN cache might support both CDN-Cache-Control and a header specific to that CDN, ExampleCDN-Cache-Control, with the latter overriding the former. Its target list would be:
 
 ~~~
   [ExampleCDN-Cache-Control, CDN-Cache-Control]
 ~~~
 
-When a cache that implements this specification receives a response with one or more of of the header field names on its list, the cache MUST select the first (in list order) field with a valid, non-empty value and use that to determine the caching policy for the response, and MUST ignore the Cache-Control and Expires header fields in that response, unless no valid, non-empty value is available from the listed header fields.
+When a cache that implements this specification receives a response with one or more of of the header field names on its target list, the cache MUST select the first (in target list order) field with a valid, non-empty value and use that to determine the caching policy for the response, and MUST ignore the Cache-Control and Expires header fields in that response, unless no valid, non-empty value is available from the listed header fields.
 
 Note that this is on a response-by-response basis; if no applicable targeted field is present, valid and non-empty, a cache falls back to other cache control mechanisms as required by HTTP {{!I-D.ietf-httpbis-cache}}.
 
-Targeted fields that are not on a cache's list of applicable field names MUST NOT change that cache's behaviour, and MUST be passed through.
+Targeted fields that are not on a cache's target list MUST NOT change that cache's behaviour, and MUST be passed through.
 
 Caches that use a targeted field MUST implement the semantics of the following cache directives:
 
